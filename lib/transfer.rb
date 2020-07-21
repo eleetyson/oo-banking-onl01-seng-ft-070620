@@ -16,7 +16,7 @@ class Transfer
   def execute_transaction
     
     # shouldn't execute if sender or receiver has an invalid account
-    if valid? != true
+    if valid? != true || self.sender.balance < amount
       self.status = "rejected"
       "Transaction rejected. Please check your account balance."
     # shouldn't execute if the sender's balance is less than the transfer amount
